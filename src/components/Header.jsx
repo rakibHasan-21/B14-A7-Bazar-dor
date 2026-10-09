@@ -1,12 +1,15 @@
+// "use client"
+
 import Image from "next/image";
 import Link from "next/link";
 import HeaderDate from "./HeaderDate";
 import NavLink from "./NavLink";
+import Button from "./Button";
 
 const Header = () => {
   return (
     <header className="border-b border-gray-100 bg-white">
-      <div className="mx-auto flex max-w-[1180px] items-center justify-between px-4">
+      <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between px-4">
         <div className="py-4">
           <Link href="/" className="flex items-center gap-3">
             <Image
@@ -18,8 +21,10 @@ const Header = () => {
             />
 
             <div>
-              <h1 className="text-xl font-bold text-gray-900">বাজার দর</h1>
-              <HeaderDate></HeaderDate>
+              <h1 className="text-xl font-bold text-gray-900">
+                বাজার দর
+              </h1>
+              <HeaderDate />
             </div>
           </Link>
 
@@ -28,20 +33,9 @@ const Header = () => {
           </nav>
         </div>
 
-        <div className="flex items-center gap-6">
-          <Link
-            href="/sign-in"
-            className="text-sm font-medium text-gray-700 hover:text-green-600"
-          >
-            সাইন ইন
-          </Link>
-
-          <Link
-            href="/sign-up"
-            className="rounded-lg bg-green-600 px-5 py-3 text-sm font-semibold text-white hover:bg-green-700"
-          >
-            সাইন আপ
-          </Link>
+        <div className="flex items-center gap-4 py-4">
+        
+            <Button></Button>
         </div>
       </div>
     </header>

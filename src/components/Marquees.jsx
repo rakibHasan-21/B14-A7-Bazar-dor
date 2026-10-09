@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 const Marquees = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
   const data = await res.json();
   if (!res.ok) {
     throw new Error("Failed to fetch categories");
