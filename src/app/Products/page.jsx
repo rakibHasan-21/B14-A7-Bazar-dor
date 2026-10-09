@@ -1,0 +1,78 @@
+import Link from "next/link";
+import React from "react";
+
+const Products = async () => {
+  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const Products = await res.json();
+  const filter = Products.filter((product) => product.change.dir === "up")
+    .filter(
+      (product, index, array) =>
+        array.findIndex((item) => item.category === product.category) === index,
+    )
+    .slice(0, 6);
+
+  console.log(filter);
+  return (
+    <div className="mx-auto max-w-[1180px] py-8">
+      <h2 className="font-bold text-3xl mb-5"><span className="text-red-600">⬆</span>আজ দাম বেড়েছে</h2>
+
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {filter.map((data) => (
+          <Link href={`/products${data.slug}`}
+            key={data.id}
+            className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div>
+              <div className="mb-1 text-sm  flex">
+                <p className="text-3xl text-gray-500">{data.categoryIcon}</p>
+                <div className="">
+                  <p className="text-xl ml-3">{data.categoryNameBn}</p>
+                  <p className="ml-3">প্রতি কেজি</p>
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <p className="text-sm text-gray-500">আজকের দাম</p>
+
+                <div className="mt-1 flex items-center justify-between">
+                  <div>
+                    <span className="text-2xl font-bold text-green-600">
+                      ৳{data.today}
+                    </span>
+
+                    <span className="ml-1 text-sm text-gray-500">
+                      / {data.unit}
+                    </span>
+                  </div>
+                  <span
+                    className={`rounded-full px-3 py-1 text-sm font-medium ${
+                      data.change.dir === "up"
+                        ? "bg-red-100 text-red-600"
+                        : data.change.dir === "down"
+                          ? "bg-green-100 text-green-600"
+                          : "bg-gray-100 text-gray-600"
+                    }`}
+                  >
+                    {data.change.dir === "up"
+                      ? "⬆"
+                      : data.change.dir === "down"
+                        ? "↓"
+                        : "—"}{" "}
+                    {data.change.pct}%
+                  </span>
+                </div>
+              </div>
+
+              {/* Previous Price */}
+              <div className="mt-3 border-t pt-3 text-sm text-gray-500">
+                গতকালের দাম: ৳{data.yesterday} / {data.unit}
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Products;
