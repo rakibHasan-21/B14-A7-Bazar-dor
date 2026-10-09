@@ -3,6 +3,9 @@ import React from "react";
 
 const Products = async () => {
   const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  if (!res.ok) {
+    throw new Error("Failed to fetch categories");
+  }
   const Products = await res.json();
   const filter = Products.filter((product) => product.change.dir === "up")
     .filter(
@@ -14,11 +17,14 @@ const Products = async () => {
   console.log(filter);
   return (
     <div className="mx-auto max-w-[1180px] py-8">
-      <h2 className="font-bold text-3xl mb-5"><span className="text-red-600">⬆</span>আজ দাম বেড়েছে</h2>
+      <h2 className="font-bold text-3xl mb-5">
+        <span className="text-red-600">⬆</span>আজ দাম বেড়েছে
+      </h2>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {filter.map((data) => (
-          <Link href={`/products${data.slug}`}
+          <Link
+            href={`/products${data.slug}`}
             key={data.id}
             className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
           >

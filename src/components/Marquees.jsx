@@ -1,11 +1,12 @@
 import Link from "next/link";
 import React from "react";
 
-
 const Marquees = async () => {
   const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
   const data = await res.json();
-//   console.log("FULL DATA:", data);
+  if (!res.ok) {
+    throw new Error("Failed to fetch categories");
+  }
   const allData = data;
 
   // console.log("PRODUCTS:", allData);
@@ -15,7 +16,8 @@ const Marquees = async () => {
       <div className="overflow-hidden px-4">
         <div className="flex gap-8">
           {allData.map((product) => (
-            <Link href={`/products/${product.slug}`}
+            <Link
+              href={`/products/${product.slug}`}
               key={product.id}
               className="flex shrink-0 items-center gap-2 text-sm"
             >
