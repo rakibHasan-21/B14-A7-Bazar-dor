@@ -134,8 +134,8 @@ const signInGithub= async () => {
           >
             সাইন আপ
           </Button>
-          <div className="flex justify-center gap-14">
-            <button onClick={signIn}>google</button>
+          <div className="flex justify-center gap-16">
+            <button onClick={signIn}>google +</button>
             <button onClick={signInGithub}>Github</button>
           </div>
         </Form>
