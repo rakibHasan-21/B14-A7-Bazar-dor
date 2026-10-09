@@ -1,15 +1,14 @@
-import { createAuthClient } from "better-auth/react";
+// import { createAuthClient } from "better-auth/react";
 
-export const authClient = createAuthClient({
-   baseURL: "http://localhost:3000"
-});
+// export const authClient = createAuthClient({
+//    baseURL: "http://localhost:3000",
+// });
+// export const {
+//   signIn,
+//   signUp,
+//   signOut,
+//   updateUser,
+//   useSession,
+// } = authClient;
 
-export const {
-  signIn,
-  signUp,
-  signOut,
-  updateUser,
-  useSession,
-} = authClient;
-
-export const social = authClient.signIn.social;
+// export const social = authClient.signIn.social;
