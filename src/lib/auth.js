@@ -8,7 +8,7 @@ if (!mongoUrl) {
   throw new Error("MONGODB_URL is missing");
 }
 
-const client = new MongoClient(mongoUrl);
+const client = new MongoClient(process.env.MONGODB_URL)
 const db = client.db("Bazar-Dor");
 
 export const auth = betterAuth({
