@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Marquees from "@/components/Marquees";
 import Marquee from "react-fast-marquee";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,11 @@ export default function RootLayout({ children }) {
           <Marquees />
         </Marquee>
 
-        {children}
+        <main>
+          {children}
+        </main>
+
+        <Footer></Footer>
       </body>
     </html>
   );

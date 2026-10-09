@@ -1,31 +1,25 @@
 import Link from "next/link";
 import React from "react";
 
-const Products = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products",  {cache: "force-cache"});
+const AllProducts = async () => {
+  const res = await fetch(
+    "https://api.abcz.workers.dev/api/bazardor/products",
+    { cache: "force-cache" },
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch categories");
   }
-  const Products = await res.json();
- const filter = Products
-  .filter(
-    (product) =>
-      product.change &&
-      product.change.dir === "up" &&
-      product.change.pct > 0
-  )
-  .sort((a, b) => b.change.pct - a.change.pct)
-  .slice(0, 6);
-
-console.log(filter);
+  const AllProducts = await res.json();
+  console.log(AllProducts);
   return (
     <div className="mx-auto max-w-[1180px] py-8">
       <h2 className="font-bold text-3xl mb-5">
-        <span className="text-red-600">⬆</span>আজ দাম বেড়েছে
+        <span className="text-red-600"></span>সব পণ্য
       </h2>
+        <p className="text-gray-500 mb-4">মোট 33 টি পণ্য দেখানো হচ্ছে</p>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {filter.map((data) => (
+        {AllProducts.map((data) => (
           <Link
             href={`/products${data.slug}`}
             key={data.id}
@@ -83,4 +77,4 @@ console.log(filter);
   );
 };
 
-export default Products;
+export default AllProducts;
