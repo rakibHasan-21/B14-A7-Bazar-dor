@@ -2,11 +2,6 @@ import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 
-const mongoUrl = process.env.MONGODB_URL;
-
-// if (!mongoUrl) {
-//   throw new Error("MONGODB_URL is missing");
-// }
 
 const client = new MongoClient(process.env.MONGODB_URL)
 const db = client.db("Bazar-Dor");
