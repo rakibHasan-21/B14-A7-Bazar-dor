@@ -2,22 +2,22 @@ import Link from "next/link";
 import React from "react";
 
 const Products = async () => {
-  const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products",  {cache: "force-cache"});
+  const res = await fetch(
+    "https://openapi.programming-hero.com/api/bazardor/products",{ cache: "force-cache" },
+    { cache: "force-cache" },
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch categories");
   }
   const Products = await res.json();
- const filter = Products
-  .filter(
+  const filter = Products.filter(
     (product) =>
-      product.change &&
-      product.change.dir === "up" &&
-      product.change.pct > 0
+      product.change && product.change.dir === "up" && product.change.pct > 0,
   )
-  .sort((a, b) => b.change.pct - a.change.pct)
-  .slice(0, 6);
+    .sort((a, b) => b.change.pct - a.change.pct)
+    .slice(0, 6);
 
-console.log(filter);
+  console.log(filter);
   return (
     <div className="mx-auto max-w-[1180px] py-8">
       <h2 className="font-bold text-3xl mb-5">
@@ -27,7 +27,7 @@ console.log(filter);
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {filter.map((data) => (
           <Link
-            href={`/products${data.slug}`}
+            href={`/selectProducts/${data.slug}`}
             key={data.id}
             className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
           >

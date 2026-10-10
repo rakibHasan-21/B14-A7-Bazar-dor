@@ -14,7 +14,7 @@ const NavLink = async () => {
         {data.map((nav) => (
           <li key={nav.id}>
             <Link
-              href={`/categoey/${nav.id}`}
+              href={`/category/${nav.id}`}
               className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-green-600"
             >
               <span>{nav.icon}</span>

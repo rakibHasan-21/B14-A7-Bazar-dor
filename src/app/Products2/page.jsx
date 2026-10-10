@@ -25,7 +25,7 @@ const Products2 = async () => {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {filter.map((data) => (
           <Link
-            href={`/products/${data.slug}`}
+            href={`/selectProducts/${data.slug}`}
             key={data.id}
             className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
           >

@@ -5,43 +5,42 @@ import { authClient } from "@/lib/auth-client";
 // export const dynamic = 'force-dynamic';
 
 const SignUP = () => {
- const Submit = async (e) => {
-  e.preventDefault();
+  const Submit = async (e) => {
+    e.preventDefault();
 
-  const formData = new FormData(e.currentTarget);
-  const data = Object.fromEntries(formData.entries());
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
 
-  const { data: resData, error } = await signUp.email({
-    name: data.name,
-    email: data.email,
-    password: data.password,
-    callbackURL: "/",
-  });
+    const { data: resData, error } = await signUp.email({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      callbackURL: "/",
+    });
 
-  if (error) {
-    console.log("Signup error:", error);
-    return;
-  }
+    if (error) {
+      console.log("Signup error:", error);
+      return;
+    }
 
-  console.log("Signup successful:", resData);
+    console.log("Signup successful:", resData);
 
-  window.location.href = "/";
-};
+    window.location.href = "/";
+  };
 
-const googleSignIn = async () => {
-  const data = await authClient.signIn.social({
-    provider: "google",
-  });
-  console.log(data)
-};
-
-
-const GitHubSignIn = async () => {
+  const googleSignIn = async () => {
     const data = await authClient.signIn.social({
-        provider: "github"
-    })
-    console.log(data)
-}
+      provider: "google",
+    });
+    console.log(data);
+  };
+
+  const GitHubSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "github",
+    });
+    console.log(data);
+  };
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#f4f7f6] p-4 font-sans text-[#1a1a1a]">
       <div className="w-full max-w-[500px]">
@@ -139,7 +138,21 @@ const GitHubSignIn = async () => {
 
           {/* Footer Link */}
           <div className="mt-6 text-center">
-            <Link
+            <div className="flex gap-3">
+              <button
+                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 shadow-sm transition-all duration-200 hover:border-red-300 hover:bg-gray-50 hover:shadow-md active:scale-[0.98] mr-2"
+                onClick={googleSignIn}
+              >
+                Google দিয়ে চালিয়ে যান
+              </button>
+              <button
+                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 shadow-sm transition-all duration-200 hover:border-red-300 hover:bg-gray-50 hover:shadow-md active:scale-[0.98] mr-2"
+                onClick={GitHubSignIn}
+              >
+                GitHub দিয়ে চালিয়ে যান
+              </button>
+            </div>
+            {/* <Link
               href="/sign-in"
               className="text-sm text-gray-500 transition-colors hover:text-green-600"
             >
@@ -147,9 +160,7 @@ const GitHubSignIn = async () => {
               <span className="border-b border-green-600/30 font-medium text-green-600">
                 সাইন ইন করুন
               </span>
-            </Link>
-            <button onClick={googleSignIn}>Google</button>
-            <button onClick={GitHubSignIn}>Github</button>
+            </Link> */}
           </div>
         </div>
       </div>
