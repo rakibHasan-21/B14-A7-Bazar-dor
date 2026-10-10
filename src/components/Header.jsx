@@ -30,17 +30,20 @@ const Header = () => {
 
         <div className="flex items-center gap-4 py-4">
           <button
-            type="submit"
+            type="button"
             className="w-full rounded-xl bg-green-600 px-5 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-700 hover:shadow-lg active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
           >
-            সাইন আপ
+             সাইন আপ
           </button>
+          <Link href={'/sign-up'}>
           <button
-            type="submit"
+            type="button"
             className="w-full rounded-xl bg-green-600 px-5 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-700 hover:shadow-lg active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            সাইন আপ
+            >
+            
+          সাইন আপ
           </button>
+            </Link>
         </div>
       </div>
     </header>
