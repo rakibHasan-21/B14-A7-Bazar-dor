@@ -2,7 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Marquee from "react-fast-marquee";
 import Marquees from "@/components/Marquees-page";
 
 const geistSans = Geist({
@@ -29,10 +28,9 @@ export default function RootLayout({ children }) {
        {/* */}
       <body className="min-h-full flex flex-col"  cz-shortcut-listen="true" >
         <Header />
-
-        <Marquee>
+        <Marquees>
           <Marquees></Marquees>
-        </Marquee>
+        </Marquees>
 
         <main>
           {children}

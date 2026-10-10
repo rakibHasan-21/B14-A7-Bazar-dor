@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <section className="w-full bg-[#eff4f0] px-3 py-5 sm:px-5">
       <div className="relative mx-auto flex max-w-[1180px] items-center justify-between overflow-hidden rounded-[28px] border border-[#e3eae5] bg-[#fafdfb] px-6 py-4">
-        {/* Left content */}
+
         <div className="relative z-10 max-w-[470px]">
           <span className="inline-block rounded-full bg-[#dcf1e4] px-3 py-1 text-[12px] font-semibold leading-none text-[#0b7a3b]">
             মঙ্গলবার, ৬ অক্টোবর, ২০২৬
@@ -29,7 +29,6 @@ const Banner = () => {
           </Link>
         </div>
 
-        {/* Right illustration */}
         <div className="pointer-events-none hidden shrink-0 pr-8 sm:block md:pr-12">
           <Image
             src={"/bazar-hero.png"}

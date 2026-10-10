@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HeaderDate from "./HeaderDate";
 import NavLink from "./NavLink";
+import LinkButton from "./LinkButton";
 
 const Header = () => {
   return (
@@ -27,23 +28,8 @@ const Header = () => {
             <NavLink />
           </nav>
         </div>
-
         <div className="flex items-center gap-4 py-4">
-          <button
-            type="button"
-            className="w-full rounded-xl bg-green-600 px-5 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-700 hover:shadow-lg active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
-          >
-             সাইন আপ
-          </button>
-          <Link href={'/sign-up'}>
-          <button
-            type="button"
-            className="w-full rounded-xl bg-green-600 px-5 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-700 hover:shadow-lg active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
-            >
-            
-          সাইন আপ
-          </button>
-            </Link>
+          <LinkButton></LinkButton>
         </div>
       </div>
     </header>

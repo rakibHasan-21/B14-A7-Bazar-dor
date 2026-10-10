@@ -2,14 +2,12 @@ import Link from "next/link";
 import React from "react";
 
 const Marquees = async () => {
-  const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
+  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products" ,{cache: "force-cache"});
   const data = await res.json();
   if (!res.ok) {
     throw new Error("Failed to fetch categories");
   }
   const allData = data;
-
-  // console.log("PRODUCTS:", allData);
 
   return (
     <div className="border-t border-gray-100 bg-gray-50 py-3">
