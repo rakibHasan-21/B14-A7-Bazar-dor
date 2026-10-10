@@ -6,8 +6,7 @@ import Link from "next/link";
 const Profile = () => {
   const { data: session, isPending } = useSession();
   const user = session?.user;
-
-  // Update Name
+  
   const Submit = async (e) => {
     e.preventDefault();
 
@@ -31,7 +30,6 @@ const Profile = () => {
     console.log("Name updated successfully:", data);
   };
 
-  // Sign Out
   const handleSignOut = async () => {
     const { error } = await signOut();
 
@@ -43,7 +41,6 @@ const Profile = () => {
     window.location.href = "/signIn";
   };
 
-  // Loading
   if (isPending) {
     return (
       <div className="flex min-h-screen items-center justify-center">
@@ -52,7 +49,6 @@ const Profile = () => {
     );
   }
 
-  // Not Logged In
   if (!user) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4">
