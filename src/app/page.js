@@ -3,7 +3,7 @@ import Products from "./Products/page";
 import Products2 from "./Products2/page";
 import AllProducts from "./AllProducts/page";
 
-export const instant = false;
+// export const instant = false;
 export default function Home() {
   return (
     <div>

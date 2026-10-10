@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { signUp, social } from "@/lib/auth-client";
 import { authClient } from "@/lib/auth-client";
+// export const dynamic = 'force-dynamic';
 
 const SignUP = () => {
  const Submit = async (e) => {

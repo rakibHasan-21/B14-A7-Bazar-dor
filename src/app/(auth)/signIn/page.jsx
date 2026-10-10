@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { signIn, social } from "@/lib/auth-client";
 import { authClient } from "@/lib/auth-client";
+// export const dynamic = 'force-dynamic';
+
 const SignIn = () => {
   const Submit = async (e) => {
     e.preventDefault();
