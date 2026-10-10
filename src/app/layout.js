@@ -26,11 +26,12 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col"  cz-shortcut-listen="true">
+       {/* */}
+      <body className="min-h-full flex flex-col"  cz-shortcut-listen="true" >
         <Header />
 
         <Marquee>
-          {/* <Marquees></Marquees> */}
+          <Marquees></Marquees>
         </Marquee>
 
         <main>

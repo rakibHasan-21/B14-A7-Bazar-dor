@@ -1,10 +1,7 @@
-// "use client"
-
 import Image from "next/image";
 import Link from "next/link";
 import HeaderDate from "./HeaderDate";
 import NavLink from "./NavLink";
-import Button from "./Button";
 
 const Header = () => {
   return (
@@ -21,9 +18,7 @@ const Header = () => {
             />
 
             <div>
-              <h1 className="text-xl font-bold text-gray-900">
-                বাজার দর
-              </h1>
+              <h1 className="text-xl font-bold text-gray-900">বাজার দর</h1>
               <HeaderDate />
             </div>
           </Link>
@@ -34,8 +29,18 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-4 py-4">
-        
-            <Button></Button>
+          <button
+            type="submit"
+            className="w-full rounded-xl bg-green-600 px-5 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-700 hover:shadow-lg active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            সাইন আপ
+          </button>
+          <button
+            type="submit"
+            className="w-full rounded-xl bg-green-600 px-5 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-700 hover:shadow-lg active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            সাইন আপ
+          </button>
         </div>
       </div>
     </header>
