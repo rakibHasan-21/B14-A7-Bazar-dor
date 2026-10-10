@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const NavLink = async () => {
-  const res = await fetch("https://api.api-store.workers.dev/api/bazardor/categories" ,{cache: "force-cache"});
+  const res = await fetch("https://openapi.programming-hero.com/api/bazardor/categories" ,{cache: "force-cache"});
    if (!res.ok) {
     throw new Error("Failed to fetch categories");
   }

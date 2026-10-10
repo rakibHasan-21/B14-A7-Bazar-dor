@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const Products2 = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products",{ cache: "force-cache" },);
+  const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products",{ cache: "force-cache" },);
 
   if (!res.ok) {
     throw new Error("Failed to fetch products");
