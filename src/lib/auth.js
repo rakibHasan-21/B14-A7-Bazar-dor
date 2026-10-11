@@ -6,6 +6,14 @@ const client = new MongoClient(process.env.MONGODB_URL);
 const db = client.db("assigment-a7");
 
 export const auth = betterAuth({
+
+  baseURL: process.env.BETTER_AUTH_URL,
+
+  trustedOrigins: [
+    "http://localhost:3000",
+    "https://b14-a7-bazar-dor-sable.vercel.app",
+  ],
+
   database: mongodbAdapter(db, {
     client,
   }),
