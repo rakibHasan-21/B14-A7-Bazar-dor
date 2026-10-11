@@ -47,6 +47,9 @@ const IdSlug = async ({ params }) => {
   const taka = (price) =>
     `৳ ${Number(price).toLocaleString("bn-BD")}`;
 
+  
+  console.log("====>",avgPrice)
+  console.log("====>",product)
   return (
     <main className="min-h-screen bg-[#f0f5ef] px-3 py-4 text-[#263027] sm:px-6 sm:py-6">
       <div className="mx-auto max-w-5xl">

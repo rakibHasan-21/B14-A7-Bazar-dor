@@ -111,17 +111,20 @@ const SignIn = () => {
             </span>
           </div>
 
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-500">
-              <Link
-                href="/signUp"
-                className="font-medium text-green-600 hover:text-green-700"
+          <div className="mt-6 text-center flex gap-3">
+            <button
+                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 shadow-sm transition-all duration-200 hover:border-red-300 hover:bg-gray-50 hover:shadow-md active:scale-[0.98] mr-2"
+                onClick={googleSignIn}
               >
-                সাইন আপ করুন
-              </Link>
-              <button className="btn bg-red-400 p-3 rounded-2xl text-white" onClick={googleSignIn}>Google</button>
-              <button className="btn bg-red-400 p-3 rounded-2xl text-white" onClick={GitHubSignIn}>Github</button>
-            </p>
+                Google দিয়ে চালিয়ে যান
+              </button>
+              <button
+                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 shadow-sm transition-all duration-200 hover:border-red-300 hover:bg-gray-50 hover:shadow-md active:scale-[0.98] mr-2"
+                onClick={GitHubSignIn}
+              >
+                GitHub দিয়ে চালিয়ে যান
+              </button>
+            
           </div>
         </div>
       </div>

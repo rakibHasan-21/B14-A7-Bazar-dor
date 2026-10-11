@@ -15,8 +15,17 @@ const Slug = async ({ params }) => {
 
   const data = await res.json();
 
-  const products = Array.isArray(data) ? data : data.data || [];
+  // const products = Array.isArray(data) ? data : data.data || [];
 
+  const products = Array.isArray(data)
+  ? data
+  : Array.isArray(data.data)
+    ? data.data
+    : Array.isArray(data.products)
+      ? data.products
+      : [];
+
+console.log(products);
   return (
     <div className="min-h-screen bg-[#f1f5ef] px-4 py-6">
       <div className="mx-auto max-w-[1180px]">

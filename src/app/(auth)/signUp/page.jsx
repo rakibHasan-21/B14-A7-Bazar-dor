@@ -152,15 +152,6 @@ const SignUP = () => {
                 GitHub দিয়ে চালিয়ে যান
               </button>
             </div>
-            {/* <Link
-              href="/sign-in"
-              className="text-sm text-gray-500 transition-colors hover:text-green-600"
-            >
-              অ্যাকাউন্ট আছে?{" "}
-              <span className="border-b border-green-600/30 font-medium text-green-600">
-                সাইন ইন করুন
-              </span>
-            </Link> */}
           </div>
         </div>
       </div>
