@@ -2,9 +2,11 @@
 import Link from "next/link";
 import { signUp, social } from "@/lib/auth-client";
 import { authClient } from "@/lib/auth-client";
-// export const dynamic = 'force-dynamic';
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 const SignUP = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const Submit = async (e) => {
     e.preventDefault();
 
@@ -96,8 +98,7 @@ const SignUP = () => {
               />
             </div>
 
-            {/* Password Input */}
-            <div>
+            <div className="relative">
               <label
                 htmlFor="password"
                 className="mb-1.5 block text-sm font-medium text-gray-700"
@@ -108,15 +109,22 @@ const SignUP = () => {
               <input
                 id="password"
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="কমপক্ষে ৮ অক্ষর"
                 minLength={8}
                 required
                 className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm transition-colors placeholder-gray-400 focus:border-green-600 focus:outline-none"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-colors hover:text-green-600 absolute bottom-9"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <EyeOff/> : <Eye/>}
+              </button>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               className="mt-2 w-full rounded-lg bg-[#059669] py-3 text-sm font-medium text-white shadow-[0_4px_6px_rgba(5,150,105,0.2)] transition-all hover:bg-[#047857]"

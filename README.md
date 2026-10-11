@@ -23,6 +23,9 @@
 - mongo-adapter
 - heroui/react
 - lucide-react
+- framer-motion
+
+
 ## 🚀 Live Demo : https://b14-a7-bazar-dor-sable.vercel.app/
 
 [Visit BazarDor](https://b14-a7-bazar-dor-sable.vercel.app/)

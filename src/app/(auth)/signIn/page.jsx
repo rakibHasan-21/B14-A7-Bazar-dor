@@ -2,9 +2,11 @@
 import Link from "next/link";
 import { signIn, social } from "@/lib/auth-client";
 import { authClient } from "@/lib/auth-client";
-// export const dynamic = 'force-dynamic';
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 const SignIn = () => {
+    const [showPassword, setShowPassword] = useState(false);
   const Submit = async (e) => {
     e.preventDefault();
 
@@ -31,15 +33,15 @@ const SignIn = () => {
     const data = await authClient.signIn.social({
       provider: "google",
     });
-    console.log(data)
+    console.log(data);
   };
 
   const GitHubSignIn = async () => {
-      const data = await authClient.signIn.social({
-          provider: "github"
-      })
-      console.log(data)
-  }
+    const data = await authClient.signIn.social({
+      provider: "github",
+    });
+    console.log(data);
+  };
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#f4f7f6] p-4 font-sans text-[#1a1a1a]">
       <div className="w-full max-w-[500px]">
@@ -74,7 +76,7 @@ const SignIn = () => {
               />
             </div>
 
-            <div>
+            <div className="relative">
               <label
                 htmlFor="password"
                 className="mb-1.5 block text-sm font-medium text-gray-700"
@@ -85,12 +87,20 @@ const SignIn = () => {
               <input
                 id="password"
                 name="password"
-                type="password"
-                placeholder="আপনার পাসওয়ার্ড"
-                autoComplete="current-password"
+                type={showPassword ? "text" : "password"}
+                placeholder="কমপক্ষে ৮ অক্ষর"
+                minLength={8}
                 required
-                className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm focus:border-green-600 focus:outline-none"
+                className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm transition-colors placeholder-gray-400 focus:border-green-600 focus:outline-none"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-colors hover:text-green-600 absolute bottom-9"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <EyeOff /> : <Eye />}
+              </button>
             </div>
 
             <button
@@ -113,18 +123,17 @@ const SignIn = () => {
 
           <div className="mt-6 text-center flex gap-3">
             <button
-                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 shadow-sm transition-all duration-200 hover:border-red-300 hover:bg-gray-50 hover:shadow-md active:scale-[0.98] mr-2"
-                onClick={googleSignIn}
-              >
-                Google দিয়ে চালিয়ে যান
-              </button>
-              <button
-                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 shadow-sm transition-all duration-200 hover:border-red-300 hover:bg-gray-50 hover:shadow-md active:scale-[0.98] mr-2"
-                onClick={GitHubSignIn}
-              >
-                GitHub দিয়ে চালিয়ে যান
-              </button>
-            
+              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 shadow-sm transition-all duration-200 hover:border-red-300 hover:bg-gray-50 hover:shadow-md active:scale-[0.98] mr-2"
+              onClick={googleSignIn}
+            >
+              Google দিয়ে চালিয়ে যান
+            </button>
+            <button
+              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 shadow-sm transition-all duration-200 hover:border-red-300 hover:bg-gray-50 hover:shadow-md active:scale-[0.98] mr-2"
+              onClick={GitHubSignIn}
+            >
+              GitHub দিয়ে চালিয়ে যান
+            </button>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Marquees from "@/components/Marquees-page";
 import Marquee from "react-fast-marquee";
+import Context from "./context/context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,14 +29,16 @@ export default function RootLayout({ children }) {
     >
       {/* */}
       <body className="min-h-full flex flex-col" cz-shortcut-listen="true">
-        <Header />
-        <Marquee>
-          <Marquees></Marquees>
-        </Marquee>
+        <Context>
+          <Header />
+          <Marquee>
+            <Marquees></Marquees>
+          </Marquee>
 
-        <main>{children}</main>
+          <main>{children}</main>
 
-        <Footer></Footer>
+          <Footer></Footer>
+        </Context>
       </body>
     </html>
   );
