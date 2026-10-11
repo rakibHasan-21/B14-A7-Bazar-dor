@@ -45,18 +45,12 @@ console.log(products);
           </div>
         </div>
 
-        {/* Sorting / Product count */}
         <div className="mb-4 flex items-center justify-between rounded-2xl border border-[#dfe7de] bg-[#fbfdfb] px-5 py-4">
           <p className="text-sm text-gray-600">
-            মোট {products.length}টি পণ্য দেখানো হচ্ছে
+            মোট {products.length} টি পণ্য দেখানো হচ্ছে
           </p>
-
-          <span className="rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-600">
-            ডিফল্ট
-          </span>
+          <p>সাজান</p>
         </div>
-
-        {/* Product Cards */}
 
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -66,7 +60,8 @@ console.log(products);
               href={`/selectProducts/${product.id}`}
               className="block rounded-2xl border border-[#dfe7de] bg-[#fbfdfb] p-4 transition duration-200 hover:-translate-y-1 hover:shadow-md"
             >
-              <div className="mb-4 flex items-center gap-3">
+
+              <div  className="mb-4 flex items-center gap-3">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f0f5ef] text-2xl">
                   {product.image || product.categoryIcon || "🍚"}
                 </div>
